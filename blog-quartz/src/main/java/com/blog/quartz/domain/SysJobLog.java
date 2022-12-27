@@ -7,7 +7,7 @@ import com.blog.common.annotation.Excel;
 import com.blog.common.core.domain.BaseEntity;
 
 /**
- * 定时任务调度日志表 sys_job_log
+ * 定时任务调度日志表 sys_job_log12312
  *
  * @author blog
  */
