@@ -26,6 +26,7 @@ public class BloEssayController extends BaseController {
     @GetMapping("/list")
     public TableDataInfo list(BloEssay essay){
         QueryWrapper<BloEssay> wrapper = new QueryWrapper<>(essay);
+        wrapper.orderByDesc("create_time");
         startPage();
         List<BloEssay> list = essayService.list(wrapper);
         return getDataTable(list);
@@ -43,13 +44,13 @@ public class BloEssayController extends BaseController {
         return toAjax(essayService.save(essay));
     }
 
-    @PreAuthorize("ss.hasPermi('blog:essay:edit')")
+    @PreAuthorize("@ss.hasPermi('blog:essay:edit')")
     @PutMapping
     public AjaxResult edit(@RequestBody BloEssay essay){
         return toAjax(essayService.updateById(essay));
     }
 
-    @PreAuthorize("ss.hasPermi('blog:essay:remove')")
+    @PreAuthorize("@ss.hasPermi('blog:essay:remove')")
     @DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable List<Long> ids){
         return toAjax(essayService.removeBatchByIds(ids));
