@@ -56,6 +56,7 @@ public class BloEssayController extends BaseController {
         return toAjax(essayService.removeBatchByIds(ids));
     }
 
+    //123123
     @PreAuthorize("@ss.hasPermi('blog:essay:export')")
     @PostMapping("/export")
     public void export(@RequestBody BloEssay essay, HttpServletResponse response){
